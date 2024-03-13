@@ -1,0 +1,119 @@
+en,fr,predicted,meteor_score
+site map,plan du site,carte du site,0.625
+feedback,rétroaction,réaction,0.0
+credits,crédits,crédits,0.5
+français,english,français,0.0
+what is light ?,qu’est-ce que la lumière?,- C' est quoi la lumière ?,0.41471048513302033
+cartoon,bande dessinée,dessin animé,0.0
+links,liens,liens,0.5
+glossary,glossaire,glossaire,0.5
+observatories,observatoires,observatoires,0.5
+who are we?,où sommes-nous?,Qui sommes-nous ?,0.625
+where did we come from?,d'où venons-nous?,D'où venons-nous ?,0.9814814814814815
+are we alone?,sommes-nous seuls?,On est seuls ?,0.6048387096774195
+astronomers timeline,astronomes ligne de temps,chronologie des astronomes,0.25641025641025644
+verbatim a journey into canadian astronomy,verbatim l'aventure astronomique canadienne,Un voyage dans l'astronomie canadienne.,0.11904761904761905
+instruments isaac newton builds his telescope.,instruments isaac newton fabrique son télescope.,Isaac Newton construit son télescope.,0.7014492753623188
+astronomes william frederick king is born.,astronomes naissance de william frederick king.,L'astronome William Frederick King est né.,0.5357142857142857
+astronomes john stanley plaskett is born.,astronomes naissance de john stanley plaskett.,L'astronome John Stanley Plaskett est né.,0.5357142857142857
+astronomes clarence augustus chant is born.,astronomes naissance de clarence augustus chant.,L'astronome Clarence Auguste Chante est né.,0.2142857142857143
+astronomes carlyle smith beals is born.,astronomes naissance de carlyle smith beals.,L'astronome Carlyle Smith Beals est né.,0.5357142857142857
+astronomes gerhard herzberg is born.,astronomes naissance de gerhard herzberg.,L'astronome Gerhard Herzberg est né.,0.42592592592592593
+astronomes helen sawyer hogg is born.,astronomes naissance de helen sawyer hogg.,L'astronome Helen Sawyer Hogg est née.,0.5357142857142857
+astronomes andrew mckellar is born.,astronomes naissance de andrew mckellar.,L'astronome Andrew McCellar est né.,0.16666666666666666
+astronomes arthur edwin covington is born.,astronomes naissance de arthur edwin covington.,L'astronome Arthur Edwin Covington est né.,0.5357142857142857
+astronomes anne barbara underhill is born.,astronomes naissance de anne barbara underhill.,l'astronome Anne Barbara Underhill est née.,0.5357142857142857
+astronomes sidney van den bergh is born.,astronomes naissance de sidney van den bergh.,L'astronome Sidney Van den Berg est né.,0.46875
+astronomes,astronomes naissance de hubert reeves,astronomes,0.10869565217391304
+astronomes rené racine is born.,astronomes naissance de rené racine.,L'astronome René Racine est né.,0.42592592592592593
+astronomes john barrie hutchings is born.,astronomes naissance de john barrie hutchings.,L'astronome John Barry Hutchings est né.,0.5357142857142857
+astronomes jack newton is born.,astronomes naissance de jack newton.,L'astronome Jack Newton est né.,0.42592592592592593
+astronomes charles thomas bolton is born.,astronomes naissance de charles thomas bolton.,L'astronome Charles Thomas Bolton est né.,0.5357142857142857
+astronomes jean-rené roy is born.,astronomes naissance de jean-rené roy.,L'astronome Jean-René Roy est né.,0.42592592592592593
+astronomes damien lemay is born.,astronomes naissance de damien lemay.,L'astronome Damien Lemay est né.,0.42592592592592593
+astronomes paul boltwood is born.,astronomes naissance de paul boltwood.,L'astronome Paul Boltwood est né.,0.42592592592592593
+astronomes peter gordon martin is born.,astronomes naissance de peter gordon martin.,L'astronome Peter Gordon Martin est né.,0.5357142857142857
+astronomes gilles fontaine is born.,astronomes naissance de gilles fontaine.,L'astronome Gilles Fontaine est né.,0.42592592592592593
+astronomes david howard levy is born.,astronomes naissance de david howard levy.,L'astronome David Howard Levy est né.,0.5357142857142857
+astronomes john richard bond is born.,astronomes naissance de john richard bond.,L'astronome John Richard Bond est né.,0.5357142857142857
+astronomes scott duncan tremaine is born.,astronomes naissance de scott duncan tremaine.,L'astronome Scott Duncan Tremaine est né.,0.5357142857142857
+replace by: 1953:,remplacer par: 1953:,remplacé par le texte suivant:,0.19607843137254904
+astronomes jaymie mark matthews is born.,astronomes naissance de jaymie mark matthews.,L'astronome Jamie Mark Matthews est né.,0.3650793650793651
+in the future :,dans le futur :,à l'avenir:,0.12820512820512822
+they are: 1.,il s'agit des observatoires : 1.,sont les suivantes: 1.,0.4267310789049919
+"kingston observatory in london, ontario: est.","de kingston, à london, en ontario, en 1856 2.","L'observatoire Kingston à Londres, en Ontario: est.",0.33573928258967634
+stars produce large amounts of neutrinos.,les étoiles en produisent de grandes quantités.,Les étoiles produisent de grandes quantités de neutrinos.,0.7067271352985638
+work began in 1990 and was completed in 1999.,les travaux débutent en 1990 et se terminent 1999.,Les travaux ont commencé en 1990 et ont été achevés en 1999.,0.6162076481077867
+all together the satellite weighs 250 kilograms.,"en tout, le satellite pèse 250 kilogrammes.",Le satellite pèse 250 kg.,0.5563218390804598
+its predicted life expectancy is 5 to 10 years.,sa durée de vie devrait être de 5 à 10 ans.,sa durée de vie prévue est de 5 à 10 ans.,0.8300000000000002
+"the entire observatory will weigh 6,600 kilograms.",l'observatoire entier pèsera 6600 kilogrammes.,L'ensemble de l'observatoire pesera 6 600 kg.,0.16129032258064518
+the next generation,la relève,la génération suivante,0.2380952380952381
+he passed away in ottawa in 1916 at 62 years old.,"il meurt à ottawa en 1916, à l'âge de 62 ans.",Il est décédé à Ottawa en 1916 à l'âge de 62 ans.,0.8375715193897013
+chant acted as president from 1904 to 1907.,chant en sera le président entre 1904 et 1907.,chant a été président de 1904 à 1907.,0.3757575757575758
+herzberg died in ottawa in 1999 at 94 years old.,"herzberg meut à ottawa en 1999, à l'âge de 94 ans.",Herzberg est décédé à Ottawa en 1999 à l'âge de 94 ans.,0.8375715193897013
+asteroid 3316 was named in his honour.,l'astéroïde no 3316 porte son nom en son honneur.,L'astéroïde 3316 a été nommé en son honneur.,0.5681818181818182
+asteroid 2917 was named in her honour.,l'astéroïde no 2917 porte son nom en son honneur.,L'astéroïde 2917 a été nommé en son honneur.,0.5681818181818182
+asteroid 4230 bears his name in his honour.,l'astéroïde no 4230 porte son nom en son honneur.,L'astéroïde 4230 porte son nom en son honneur.,0.9041027559546079
+other instruments were to follow.,d'autres appareils suivront par la suite.,d'autres instruments étaient à suivre.,0.14492753623188406
+asteroid 4230 is named in his honour.,l'astéroïde no 4230 porte son nom en son honneur.,L'astéroïde 4230 est nommé en son honneur.,0.5739795918367346
+it was quite a triumph.,c'est un triomphe.,C'était un vrai triomphe.,0.6233062330623306
+a photographic guide for the amateur in 1977.,a photographic guide for the amateur.,Un guide photographique pour l'amateur en 1977.,0.14084507042253522
+he wrote two books with philip teece:,il rédige ensuite deux livres avec philip teece :,Il a écrit deux livres avec Philippe Tisse:,0.4955555555555556
+asteroid 3673 is named after him.,l'astéroïde no 3673 porte son nom en son honneur.,L'astéroïde 3673 est nommé d'après lui.,0.15463917525773196
+the first instruments the transit and the sextant,les premiers instruments le transit et le sextant,les premiers instruments le transit et le sextant,0.9990234375
+invisible light collectors seeing the invisible,les capteurs de lumière invisible voir l’invisible,Les collecteurs de lumière invisibles voient l'invisible,0.35866477272727276
+photographic plates memorizing light,les plaques photographiques mémoriser la lumière,plaques photographiques qui mémorisent la lumière,0.8066666666666668
+the cornea surrounds and protects the eye.,la cornée enveloppe et protège l’œil.,la cornée entoure et protège l'œil.,0.5068181818181817
+microwaves are of immense interest to astronomers.,les micro-ondes sont très étudiées en astronomie.,Les micro-ondes sont d'un immense intérêt pour les astronomes.,0.38490853658536583
+the result is a photographic image.,le résultat est alors une image.,Le résultat est une image photographique.,0.8035714285714286
+let’s take a look at the case of temperature.,prenons le cas de la température.,Nous allons jeter un coup d'œil à la température.,0.4033485540334855
+it was the first true photometer.,c’est le premier « vrai » photomètre.,C'était le premier photomètre réel.,0.32877604166666663
+"in all, 2,363 infrared sources were detected.","en tout, 2363 sources infrarouges sont détectées.","Au total, 2 363 sources infrarouges ont été détectées.",0.48478260869565226
+it was the first photograph of our sun’s spectrum.,c’est la première photographie du spectre solaire.,C'était la première photographie de notre spectre solaire.,0.5948372615039282
+"the answer was not long in coming, however.",la réponse ne tardera pas.,La réponse ne tarda pas à arriver.,0.7193548387096775
+this is destructive interference.,on parle alors d’interférence destructive.,C'est une interférence destructive.,0.38239538239538234
+the first tests were performed in 1983 and 1984.,les premiers tests sont réalisés en 1983 et 1984.,Les premiers essais ont été effectués en 1983 et 1984.,0.6849868660335421
+what would we do without it?,que ferions-nous sans elle ?,- On ferait quoi sans elle ?,0.5662393162393162
+so what exactly is light?,mais qu'est-ce donc que la lumière ?,"Alors, qu'est-ce que la lumière exactement ?",0.6281690140845071
+text of this activity,texte de l'activité,texte de cette activité,0.6048387096774195
+gamma rays the most energetic form of light.,rayons gamma lumière la plus énergétique qui soit.,Les rayons gamma sont la forme la plus énergétique de lumière.,0.6824665350010973
+the sun under gamma rays,le soleil vu sous les rayons gamma,le soleil sous les rayons gamma,0.8534621578099838
+the sun under x-rays,le soleil vu sous les rayons x,le soleil sous les rayons X,0.8534621578099838
+the sun under ultraviolet,le soleil vu sous les rayons ultraviolet,le soleil sous ultraviolet,0.47108208955223874
+the sun visible,le soleil vu dans la zone visible,le soleil visible,0.3872053872053872
+the sun under infrared,le soleil vu sous les rayons infrarouges,le soleil sous infrarouge,0.47108208955223874
+the sun under radio waves,le soleil vu dans la zone des fréquences radio,le soleil sous les ondes radio,0.2937420178799489
+emission spectra of hydrogen.,spectre d'émission de l'hydrogène.,spectre d'émission de l'hydrogène.,0.996
+emission spectra of iron.,spectre d'émission du fer.,spectre d'émission du fer.,0.996
+boy what is a light year?,bulle garçon qu’est-ce qu’une année-lumière?,- Quel est l'année-lumière ?,0.052631578947368425
+girl it’s like travelling through time.,bulle fille comme si nous voyagions dans le temps.,C'est comme voyager dans le temps.,0.4989690721649485
+now i understand!,je comprend!,Je comprends !,0.9814814814814815
+wildlife and plants are also affected.,la faune et la flore sont également touchées.,Les espèces sauvages et les plantes sont également touchées.,0.5318681318681319
+your turn to get involved!,"alors, à vous de jouer!",C'est à vous de vous impliquer !,0.2857142857142857
+click on:,vous pouvez cliquer sur :,Cliquez sur:,0.39062499999999994
+"the young man replied, ""i am morning star.",« je suis étoile du matin.,"Le jeune homme répondit: ""Je suis l'étoile du matin.",0.6453333333333334
+this one is from the iroquois of ontario.,la première provient des iroquois de l'ontario :,Celui-ci vient des iroquois de l'Ontario.,0.5023734177215189
+"""don’t be stupid,"" another replied.","« ne soit pas stupide », dit un autre.","""Ne sois pas stupide"", répondit un autre.",0.5769944341372912
+"""rocks can be broken.""",« les rochers peuvent se briser.,"""les rochers peuvent être brisés"".",0.5281690140845071
+"""what about trees?",»,"""et les arbres ?",0.0
+"""why not take on the form of night?",« pourquoi ne pas prendre la forme de la nuit?,"""pourquoi ne pas prendre la forme de la nuit?",0.9086363636363638
+"""they live in the sky and never die.""",« elles habitent le ciel et ne meurent jamais.,"""ils vivent dans le ciel et ne meurent jamais"".",0.6782713085234094
+it occupied the centre of their universe.,elle occupe aussi le centre de l'univers.,Il occupait le centre de leur univers.,0.46875
+four men were hunting a bear.,quatre hommes poursuivaient un ours.,Quatre hommes chassaient un ours.,0.8066666666666668
+the moon-man heard him and descended to earth.,l'homme-lune l'entendit et descendit sur terre.,L'homme de la lune l'a entendu et est descendu sur terre.,0.48701298701298706
+"it evolved over time, and thus it has a history.","en d’autres mots, il a une histoire.","Il a évolué au fil du temps, et donc il a une histoire.",0.5165692007797271
+it is dangerous to view the sun directly.,il est dangereux d'observer directement le soleil.,Il est dangereux de regarder le soleil directement.,0.783572688334593
+bring a notebook and pencil to take notes.,la musique peut être une option agréable.,apporter un carnet et un crayon pour prendre des notes.,0.06024096385542169
+how does a star finder work?,comment fonctionne le cherche-étoiles?,Comment fonctionne une trouvaille d'étoiles ?,0.5010893246187365
+the way a star finder works is simple.,le fonctionnement du cherche-étoiles est simple.,Le fonctionnement d'un chercheur d'étoiles est simple.,0.6816901408450705
+astronomers,astronomes,astronomes,0.5
+astronomers glossary,astronomes glossaire,glossaire des astronomes,0.4761904761904762
+synonym: shooting star.,synonyme: étoile filante.,synonyme: étoile qui se déclenche.,0.7211538461538461
+◦ radiation:,◦ radiation :,◦ rayonnement:,0.3333333333333333
+it is small and dim.,◦ tache solaire :,Il est petit et épais.,0.0
+astronomers,verbatim,astronomes,0.0
+i know what you’re thinking:,je sais... vous allez dire « y a rien là ».,Je sais ce que vous pensez:,0.20609318996415774
+"""sound  s boring!""",mais écoutez bien...,""" Ça sonne ennuyeux ! """,0.0
+"in fact, i was beginning to think we were lost.",en fait... je crois que nous étions perdus.,"En fait, je commençais à penser que nous étions perdus.",0.7636335784313727
+bubble are we almost there?,bulle quand est-ce qu’on arrive?,"Bubble, on est presque là ?",0.12658227848101264
+bubble i’m hungry.,bulle j’ai faim.,Je suis affamé.,0.08620689655172413
