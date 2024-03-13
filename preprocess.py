@@ -3,7 +3,6 @@ import nltk
 from datasets import load_dataset
 
 
-
 def clean(df):
     # Lowercase
     df['en'] = df['en'].str.lower()
@@ -19,11 +18,14 @@ def clean(df):
     df_tokenized['en_tokenized'] = df['en'].apply(nltk.word_tokenize)
     df_tokenized['fr_tokenized'] = df['fr'].apply(nltk.word_tokenize)
 
+
     print(df.head())
     return df, df_tokenized
 
 df = pd.read_csv('data/en-fr.csv' , nrows=2000)
+df.to_csv("data/base_df.csv", index=False)
 df, df_tokenized = clean(df)
+print(df_tokenized)
 
 df.to_csv("data/clean_df.csv", index=False)
 df_tokenized.to_csv("data/tokenized_df.csv", index=False)
