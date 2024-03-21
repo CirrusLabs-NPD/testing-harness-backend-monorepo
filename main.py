@@ -11,6 +11,7 @@ import pandas as pd
 import nltk
 from datasets import load_dataset
 
+
 # nltk.download('wordnet')
 
 # Preprocess the given df
@@ -89,11 +90,16 @@ predicted_hel_medf = fix_df(predicted_hel_medf)
 
 # Calculate METEOR scores
 def calculate_meteor(tokenized_df, tokenized_predicted):
-    meteor_scores = []
-    for reference, hypothesis in zip(tokenized_df['fr_tokenized'], tokenized_predicted):
-        score = meteor_score.meteor_score([reference], hypothesis)
-        meteor_scores.append(score)
-    return meteor_scores
+    try:
+        meteor_scores = []
+        for reference, hypothesis in zip(tokenized_df['fr_tokenized'], tokenized_predicted):
+            score = meteor_score.meteor_score([reference], hypothesis)
+            meteor_scores.append(score)
+        return meteor_scores
+    except Exception as identifier:
+        print(f"Got the following error (METEOR): {identifier}")
+        return
+    
 
 # Calculate BLEU score
 def calculate_bleu(predictions, references):
@@ -106,7 +112,7 @@ def calculate_bleu(predictions, references):
         bleu_score = bleu.compute(predictions=predictions, references=references)
         return bleu_score
     except Exception as identifier:
-        print(f"Got the following error: {identifier}")
+        print(f"Got the following error (BLEU): {identifier}")
         return
     
 
@@ -117,7 +123,7 @@ def calculate_ter(predictions, references):
         ter_score = ter.compute(predictions=predictions, references=references, ignore_punct=True, case_sensitive=False)
         return ter_score
     except Exception as identifier:
-            print(f"Got the following error: {identifier}")
+            print(f"Got the following error (TER): {identifier}")
             return
 
 # Test the given translations against all metrics
@@ -126,31 +132,16 @@ def test_metrics(clean_df, tokenized_df, predicted_df):
     predicted_tokenized = predicted_df['fr'].apply(nltk.word_tokenize)
     # print(f"PREDICTED_TOKENIZED DF: {predicted_tokenized}")
     predictions = predicted_df['fr'].tolist()
-    references = []
-    for value in clean_df['fr']:
-        references.append(value)
-    
+    references = [value for value in clean_df['fr']]
     clean_df['predicted'] = predicted_df['fr']
     # print(f"TOKENIZED_DF: {tokenized_df}")
     # print(f"PREDICTED_TOKENIZED: {predicted_tokenized}")
-    clean_df['meteor_score'] = calculate_meteor(tokenized_df, predicted_tokenized)
+    meteor_scores = calculate_meteor(tokenized_df, predicted_tokenized)
     # print(f"CLEAN_DF: {clean_df}")
     bleu_score = calculate_bleu(predictions, references)
     ter_score = calculate_ter(predictions, references)
     
-    return clean_df, bleu_score, ter_score
-
-# Test the datasets against the t5 model
-def test_t5():
-    final_t5_df, bleu_t5_df, ter_t5_df = test_metrics(clean_df, predicted_t5_df)
-    final_t5_medf, bleu_t5_medf, ter_t5_medf = test_metrics(clean_medf, predicted_t5_medf)
-    return
-
-# Test the datasets against the nllb-200 model
-def test_f200():
-    final_f200_df, bleu_f200_df, ter_f200_df = test_metrics(clean_df, predicted_f200_df)
-    final_f200_medf, bleu_f200_medf, ter_f200_medf = test_metrics(clean_medf, predicted_f200_medf)
-    return
+    return clean_df, bleu_score, ter_score, meteor_scores
 
 # Save the metric results to file
 def save_metrics(name, content):
@@ -160,84 +151,150 @@ def save_metrics(name, content):
         f = open(f"{name}.txt", "w")
         f.write(str(content))
         f.close()
+    
+# Rounds down scores to 3 decimal places
+def clean_scores(scores):
+    if isinstance(scores, dict):
+        if 'bleu' in scores.keys():
+            scores["bleu"] = round(scores["bleu"], 3)
+        else:
+            scores["score"] = round(scores["score"], 3)
+        return scores
+    else:
+        cleaned_scores = []
+        for value in scores:
+            cleaned_scores.append(round(value, 3))
+        return cleaned_scores
 
 # Visualize the metric results as graphs/charts
-def visualize(t5, f200, hel):
-    data = [t5["meteor_score"], f200["meteor_score"], hel["meteor_score"]]
-    fig = plt.figure(figsize =(10, 7))
- 
-    # Creating axes instance
-    ax = fig.add_axes([0, 0, 1, 1])
-    
-    # Creating plot
-    bp = ax.boxplot(data)
-    
-    # show plot
-    plt.show()
-    
-    
-    # plotting three histograms on the same axis 
-    sns.histplot(data=t5, x="meteor_score", kde=True, label="T5", bins=50)
-    sns.histplot(data=f200, x="meteor_score", kde=True, label="F200", bins=50)
-    sns.histplot(data=hel, x="meteor_score", kde=True, label="HEL", bins=50)
-    
-    plt.legend(prop={'size': 12})
-    plt.title('Meteor Score Distributions')
-    plt.xlabel('Meteor Score')
-    plt.ylabel('Count')
-    plt.show()
+def visualize_bleu(t5, f200, hel):
+    plt.figure(1)
+    graph_df = {'T5': t5['bleu'], 'F200': f200['bleu'], 'HEL': hel['bleu']}
+    ax = sns.barplot(data=graph_df, color='blue')
+    ax.bar_label(ax.containers[0])
+    plt.title("BLEU Score Distribution")
+    plt.xlabel("Models")
+    plt.ylabel("BLEU Scores")
     return
+
+# Visualize the metric results as graphs/charts
+def visualize_ter(t5, f200, hel):
+    plt.figure(2)
+    graph_df = {'T5': t5['score'], 'F200': f200['score'], 'HEL': hel['score']}
+    ax = sns.barplot(data=graph_df, color='orange')
+    ax.bar_label(ax.containers[0])
+    plt.title("TER Score Distribution")
+    plt.xlabel("Models")
+    plt.ylabel("TER Scores")
+    return
+
+def visualize_meteor(t5, f200, hel):
+    plt.figure(3)
+    data = list(zip(t5, f200, hel))
+    df = pd.DataFrame(data, columns=['T5', 'F200', 'HEL'])
+    graph_df = df.melt(var_name='Model', value_name='Meteor Score')
+    graph_df = graph_df.reset_index(drop=True)
+    print(df)
+    print(graph_df)
+    sns.histplot(graph_df, x="Meteor Score", hue="Model", element="poly")
+    plt.title("METEOR Score Distribution")
+    plt.xlabel("METEOR Scores")
+    plt.ylabel("Count")
+    
+    # plt.figure(4)
+    # sns.set_theme(style="white", rc={"axes.facecolor": (0, 0, 0, 0)})
+    # palette = sns.color_palette("Set2", 12)
+    # g = sns.FacetGrid(graph_df, palette=palette, row="Model", aspect=9, height=1.2)
+    # g.map_dataframe(sns.kdeplot, x="Meteor Score", fill=True, alpha=1)
+    # g.map_dataframe(sns.kdeplot, x="Meteor Score", color='black')
+    # g.figure.subplots_adjust(hspace=-.5)
+    # g.set_titles("")
+    # g.set(yticks=[], xlabel="Meteor Score")
+    # g.despine(left=True)
+    # plt.suptitle('Meteor Score Distribution by Models', y=0.98)
 
 # Test the models on the default dataset
 def test_df():
-    final_t5_df, bleu_t5_df, ter_t5_df = test_metrics(clean_df, tokenized_df, predicted_t5_df)
-    save_metrics("results/df/t5/T5_meteor", final_t5_df)
+    final_t5_df, bleu_t5_df, ter_t5_df, meteor_t5_df = test_metrics(clean_df, tokenized_df, predicted_t5_df)
+    save_metrics("results/df/t5/T5_meteor", meteor_t5_df)
     save_metrics("results/df/t5/T5_bleu", bleu_t5_df)
     save_metrics("results/df/t5/T5_ter", ter_t5_df)
+    save_metrics("results/df/t5/T5_translations", final_t5_df)
     
     # F200 METRICS AFFECT T5 METEOR SCORES FIX IF YOU CAN PLZ
     
-    final_f200_df, bleu_f200_df, ter_f200_df = test_metrics(clean_df, tokenized_df, predicted_f200_df)
-    save_metrics("results/df/f200/F200_meteor", final_f200_df)
+    final_f200_df, bleu_f200_df, ter_f200_df, meteor_f200_df = test_metrics(clean_df, tokenized_df, predicted_f200_df)
+    save_metrics("results/df/f200/F200_meteor", meteor_f200_df)
     save_metrics("results/df/f200/F200_bleu", bleu_f200_df)
     save_metrics("results/df/f200/F200_ter", ter_f200_df)
+    save_metrics("results/df/f200/F200_translations", final_f200_df)
+
     
-    final_hel_df, bleu_hel_df, ter_hel_df = test_metrics(clean_df, tokenized_df, predicted_hel_df)
-    save_metrics("results/df/hel/HEL_meteor", final_hel_df)
+    final_hel_df, bleu_hel_df, ter_hel_df, meteor_hel_df = test_metrics(clean_df, tokenized_df, predicted_hel_df)
+    save_metrics("results/df/hel/HEL_meteor", meteor_hel_df)
     save_metrics("results/df/hel/HEL_bleu", bleu_hel_df)
     save_metrics("results/df/hel/HEL_ter", ter_hel_df)
+    save_metrics("results/df/hel/HEL_translations", final_hel_df)
+
+    meteor_t5_df = clean_scores(meteor_t5_df)
+    bleu_t5_df = clean_scores(bleu_t5_df)
+    ter_t5_df = clean_scores(ter_t5_df)
+    meteor_f200_df = clean_scores(meteor_f200_df)
+    bleu_f200_df = clean_scores(bleu_f200_df)
+    ter_f200_df = clean_scores(ter_f200_df)
+    meteor_hel_df = clean_scores(meteor_hel_df)
+    bleu_hel_df = clean_scores(bleu_hel_df)
+    ter_hel_df = clean_scores(ter_hel_df)
     
-    visualize(final_t5_df, final_f200_df, final_hel_df)
-    return
+    # visualize(final_t5_df, final_f200_df, final_hel_df)
+    return (final_t5_df, bleu_t5_df, ter_t5_df, meteor_t5_df, 
+            final_f200_df, bleu_f200_df, ter_f200_df, meteor_f200_df, 
+            final_hel_df, bleu_hel_df, ter_hel_df, meteor_hel_df)
 
 # Test the models on the medical dataset
 def test_medf():
-    # final_t5_medf, bleu_t5_medf, ter_t5_medf = test_metrics(clean_medf, tokenized_medf, predicted_t5_medf)
-    # print(f"FINAL T5 DF: {final_t5_medf}")
-    # print(f"T5 BLEU: {bleu_t5_medf}")
-    # print(f"T5 TER: {ter_t5_medf}")
+    final_t5_medf, bleu_t5_medf, ter_t5_medf, meteor_t5_medf = test_metrics(clean_medf, tokenized_medf, predicted_t5_medf)
+    save_metrics("results/medf/t5/T5_meteor", meteor_t5_medf)
+    save_metrics("results/medf/t5/T5_bleu", bleu_t5_medf)
+    save_metrics("results/medf/t5/T5_ter", ter_t5_medf)
+    save_metrics("results/medf/t5/T5_translations", final_t5_medf)
     
     # T5 PREDICTIONS HAVE MISSING VALUE(S)
     
-    final_f200_medf, bleu_f200_medf, ter_f200_medf = test_metrics(clean_medf, tokenized_medf, predicted_f200_medf)
-    print(f"FINAL f200 DF: {final_f200_medf}")
-    print(f"f200 BLEU: {bleu_f200_medf}")
-    print(f"f200 TER: {ter_f200_medf}")
+    final_f200_medf, bleu_f200_medf, ter_f200_medf, meteor_f200_medf = test_metrics(clean_medf, tokenized_medf, predicted_f200_medf)
+    save_metrics("results/medf/f200/F200_meteor", meteor_f200_medf)
+    save_metrics("results/medf/f200/F200_bleu", bleu_f200_medf)
+    save_metrics("results/medf/f200/F200_ter", ter_f200_medf)
+    save_metrics("results/medf/f200/F200_translations", final_f200_medf)
     
-    final_hel_medf, bleu_hel_medf, ter_hel_medf = test_metrics(clean_medf, tokenized_medf, predicted_hel_medf)
-    print(f"FINAL HEL DF: {final_hel_medf}")
-    print(f"HEL BLEU: {bleu_hel_medf}")
-    print(f"HEL TER: {ter_hel_medf}")
-    return
+    final_hel_medf, bleu_hel_medf, ter_hel_medf, meteor_hel_medf = test_metrics(clean_medf, tokenized_medf, predicted_hel_medf)
+    save_metrics("results/medf/hel/HEL_meteor", meteor_hel_medf)
+    save_metrics("results/medf/hel/HEL_bleu", bleu_hel_medf)
+    save_metrics("results/medf/hel/HEL_ter", ter_hel_medf)
+    save_metrics("results/medf/hel/HEL_translations", final_hel_medf)
+    
+    return (final_t5_medf, bleu_t5_medf, ter_t5_medf, meteor_t5_medf, 
+            final_f200_medf, bleu_f200_medf, ter_f200_medf, meteor_f200_medf, 
+            final_hel_medf, bleu_hel_medf, ter_hel_medf, meteor_hel_medf)
 
-test_df()
-# test_medf()
+(final_t5_df, bleu_t5_df, ter_t5_df, meteor_t5_df, 
+ final_f200_df, bleu_f200_df, ter_f200_df, meteor_f200_df, 
+ final_hel_df, bleu_hel_df, ter_hel_df, meteor_hel_df) = test_df()
+
+(final_t5_medf, bleu_t5_medf, ter_t5_medf, meteor_t5_medf, 
+ final_f200_medf, bleu_f200_medf, ter_f200_medf, meteor_f200_medf, 
+ final_hel_medf, bleu_hel_medf, ter_hel_medf, meteor_hel_medf) = test_medf()
+
+visualize_bleu(bleu_t5_df, bleu_f200_df, bleu_hel_df)
+visualize_ter(ter_t5_df, ter_f200_df, ter_hel_df)
+visualize_meteor(meteor_t5_df, meteor_f200_df, meteor_hel_df)
+plt.show()
+visualize_bleu(bleu_t5_medf, bleu_f200_medf, bleu_hel_medf)
+visualize_ter(ter_t5_medf, ter_f200_medf, ter_hel_medf)
+visualize_meteor(meteor_t5_medf, meteor_f200_medf, meteor_hel_medf)
+plt.show()
 
 
 
 
 
-
-# clean_df['en_len'] = clean_df['en'].apply(len)
-# plt.scatter(clean_df['en_len'], clean_df['meteor_score'])
-# plt.show()
