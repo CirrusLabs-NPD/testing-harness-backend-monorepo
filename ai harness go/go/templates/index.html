@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h2 {
+            color: #444;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        label, input[type="submit"] {
+            display: block;
+            margin: 10px 0;
+        }
+        input[type="text"], input[type="file"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #004494;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload JSON File for Analysis</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="modelname">Model Name:</label>
+        <input type="text" id="modelname" name="modelname" required>
+        <label for="datafile">JSON File:</label>
+        <input type="file" id="datafile" name="datafile" accept=".json" required>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h2 {
+            color: #444;
+        }
+        div {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .metric {
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h2>Analysis Results</h2>
+    <div>
+        <div class="metric">
+            <p>Accuracy: {{.Accuracy}}</p>
+            <p class="description">Accuracy measures the proportion of true results (both true positives and true negatives) among the total number of cases examined.</p>
+        </div>
+        <div class="metric">
+            <p>Precision: {{.Precision}}</p>
+            <p class="description">Precision measures the proportion of true positive results in all positive predictions. It reflects the model's ability to identify only relevant instances.</p>
+        </div>
+        <div class="metric">
+            <p>Recall: {{.Recall}}</p>
+            <p class="description">Recall measures the proportion of actual positives that were identified correctly. It reflects the model's ability to find all relevant instances.</p>
+        </div>
+        <div class="metric">
+            <p>F1 Score: {{.F1Score}}</p>
+            <p class="description">The F1 Score is the harmonic mean of precision and recall, providing a balance between them. It's particularly useful when you need to take both false positives and false negatives into account.</p>
+        </div>
+    </div>
+</body>
+</html>
+
