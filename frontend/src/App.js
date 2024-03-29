@@ -28,13 +28,8 @@ function App() {
             <Col>
               <Container fluid className="px-0">
                 <Row>
-                  <Col style={{ backgroundColor: "#86B2D6" }}>
+                  <Col className="flex" style={{ backgroundColor: "" }}>
                     <Dashboard />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col style={{ backgroundColor: "white" }}>
-                    <ModelsView />
                   </Col>
                 </Row>
               </Container>
