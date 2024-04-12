@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        .metric {
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
+        }
+        .metric p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .metric img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-top: 15px;
+        }
+        .metric .description {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .metric p.value {
+            font-size: 1.5em;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .heatmap-container {
+            text-align: center;
+        }
+        .heatmap-container img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Results</h1>
+        <div class="metric">
+            <p class="value">Accuracy: {{printf "%.2f" .Accuracy}}</p>
+            <img src="{{.AccuracyImagePath}}" alt="Accuracy Graph">
+            <p class="description">Accuracy measures the proportion of true results (both true positives and true negatives) among the total number of cases examined. In the context of detecting hate speech, it indicates the model's overall ability to correctly identify both hate speech and non-hate speech instances. This graph compares the accuracy of the current model tested versus the accuracy of all the models tested.</p>        </div>
+        <div class="metric">
+            <p class="value">Precision: {{printf "%.2f" .Precision}}</p>
+            <p class="description">Precision measures the proportion of true positive results in all positive predictions. It reflects the model's ability to identify only relevant instances. For hate speech detection, a high precision means that when the model identifies a text as hate speech, it is likely correct, minimizing false alarms where non-hate speech is incorrectly labeled as hate speech.</p>        </div>
+        <div class="metric">
+            <p class="value">Recall: {{printf "%.2f" .Recall}}</p>
+            <p class="description">Recall measures the proportion of actual positives that were identified correctly. It reflects the model's ability to find all relevant instances. In terms of hate speech detection, it shows how well the model is at identifying all hate speech instances in the dataset, potentially missing some instances (false negatives).</p>        </div>
+        <div class="metric">
+            <p class="value">F1 Score: {{printf "%.2f" .F1Score}}</p>
+            <p class="description"> The F1 Score is the harmonic mean of precision and recall, providing a balance between them. It's particularly useful when you need to take both false positives and false negatives into account. For hate speech detection, it indicates the model's balanced performance in accurately identifying hate speech while minimizing both false positives and false negatives.</p>        </div>
+        <div class="metric">
+            <p class="value">Model Score Heat Map</p>
+            <img src="{{.HeatmapImagePath}}" alt="Heat Map of Model Scores">
+            <p class="description">The color intensity in the heat map indicates the likelihood of each text being classified as hate speech by the model. Darker shades represent higher probabilities of hate speech.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
