@@ -9,12 +9,16 @@ import axios from "axios";
 
 function Dashboard() {
   const [selectedModels, setSelectedModels] = useState([]);
-  const [selectedDataset, setSelectedDataset] = useState("");
+  const [selectedDatasets, setSelectedDatasets] = useState([]);
+  const [customDataset, setCustomDataset] = useState("");
+  const [datasets, setDatasets] = useState(["Standard", "Medical"]);
+
   const [bleuUrl, setBleuUrl] = useState("");
   const [terUrl, setTerUrl] = useState("");
   const [meteorUrl, setMeteorUrl] = useState("");
+  const [accuracyUrl, setAccuracyUrl] = useState("");
 
-  const handleCheckboxChange = (event) => {
+  const handleCheckboxChangeModels = (event) => {
     const { value, checked } = event.target;
     if (checked) {
       setSelectedModels((prevSelectedModels) => [...prevSelectedModels, value]);
@@ -25,8 +29,28 @@ function Dashboard() {
     }
   };
 
-  const handleRadioChange = (event) => {
-    setSelectedDataset(event.target.value);
+  const handleCheckboxChangeDatasets = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedDatasets((prevSelectedDatasets) => [
+        ...prevSelectedDatasets,
+        value,
+      ]);
+    } else {
+      setSelectedDatasets((prevSelectedDatasets) =>
+        prevSelectedDatasets.filter((dataset) => dataset !== value)
+      );
+    }
+  };
+  const handleInputChange = (e) => {
+    setCustomDataset(e.target.value);
+  };
+
+  const handleAddCustomDataset = () => {
+    if (customDataset) {
+      setDatasets([...datasets, customDataset]);
+      setCustomDataset("");
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -35,37 +59,28 @@ function Dashboard() {
       setBleuUrl("");
       setTerUrl("");
       setMeteorUrl("");
+      setAccuracyUrl("");
 
       // Make API call to backend
       const response = await axios.post(
         "http://localhost:8000/core/test_dataset/",
         {
           selected_models: selectedModels,
-          dataset: selectedDataset,
+          datasets: selectedDatasets,
         }
       );
 
-      const {
-        selected_models,
-        selected_dataset,
-        final_results,
-        bleu_url,
-        ter_url,
-        meteor_url,
-      } = response.data;
+      const { bleu_url, ter_url, accuracy_url } = response.data;
 
-      setSelectedModels(selected_models);
-      setSelectedDataset(selected_dataset);
       setBleuUrl(`http://localhost:8000${bleu_url}`);
       setTerUrl(`http://localhost:8000${ter_url}`);
-      setMeteorUrl(`http://localhost:8000${meteor_url}`);
+      // setMeteorUrl(`http://localhost:8000${meteor_url}`);
+      setAccuracyUrl(`http://localhost:8000${accuracy_url}`);
 
-      console.log("Selected Models:", selected_models);
-      console.log("Selected Dataset:", selected_dataset);
-      console.log("Final Results:", final_results);
       console.log("bleu_image:", bleuUrl);
       console.log("ter_image:", terUrl);
-      console.log("meteor_image:", meteorUrl);
+      // console.log("meteor_image:", meteorUrl);
+      console.log("accuracy_image:", accuracyUrl);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -79,27 +94,20 @@ function Dashboard() {
             <h1>Machine Translation</h1>
             <Form onSubmit={handleSubmit}>
               <Col style={{ alignItems: "center" }}>
-                <h2 className="h5">Choose a dataset:</h2>
-                <Form.Check
-                  inline
-                  label="Standard"
-                  name="dataset"
-                  type="radio"
-                  value="Standard"
-                  checked={selectedDataset === "Standard"}
-                  onChange={handleRadioChange}
-                  id="radio-model-1"
-                />
-                <Form.Check
-                  inline
-                  label="Medical"
-                  name="dataset"
-                  type="radio"
-                  value="Medical"
-                  checked={selectedDataset === "Medical"}
-                  onChange={handleRadioChange}
-                  id="radio-model-2"
-                />
+                <h2 className="h5">Choose dataset(s):</h2>
+                {datasets.map((dataset, index) => (
+                  <Form.Check
+                    key={index}
+                    inline
+                    label={dataset}
+                    name="dataset"
+                    type="checkbox"
+                    value={dataset}
+                    checked={selectedDatasets.includes(dataset)}
+                    onChange={handleCheckboxChangeDatasets}
+                    id={`checkbox-dataset-${index}`}
+                  />
+                ))}
               </Col>
               <Col style={{ alignItems: "center" }}>
                 <h2 className="h5">Models to test against:</h2>
@@ -110,7 +118,7 @@ function Dashboard() {
                   type="checkbox"
                   value="Google T5"
                   checked={selectedModels.includes("Google T5")}
-                  onChange={handleCheckboxChange}
+                  onChange={handleCheckboxChangeModels}
                   id="checkbox-model-1"
                 />
                 <Form.Check
@@ -120,7 +128,7 @@ function Dashboard() {
                   type="checkbox"
                   value="Facebook NLLB"
                   checked={selectedModels.includes("Facebook NLLB")}
-                  onChange={handleCheckboxChange}
+                  onChange={handleCheckboxChangeModels}
                   id="checkbox-model-2"
                 />
                 <Form.Check
@@ -130,7 +138,7 @@ function Dashboard() {
                   type="checkbox"
                   value="Helsinki Opus"
                   checked={selectedModels.includes("Helsinki Opus")}
-                  onChange={handleCheckboxChange}
+                  onChange={handleCheckboxChangeModels}
                   id="checkbox-model-3"
                 />
               </Col>
@@ -184,6 +192,21 @@ function Dashboard() {
                     METEOR scores measure the quality of generated text based on
                     the alignment between the generated text and the reference
                     text.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          )}
+          {accuracyUrl && (
+            <Col>
+              <Card className="mx-auto" style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={accuracyUrl} />
+                <Card.Body>
+                  <Card.Title>ACCURACY Plot</Card.Title>
+                  <Card.Text>
+                    Accuracy is the proportion of correct predictions among the
+                    total number of cases processed. It can be computed with:
+                    Accuracy = (TP + TN) / (TP + TN + FP + FN)
                   </Card.Text>
                 </Card.Body>
               </Card>
