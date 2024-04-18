@@ -67,33 +67,19 @@ def generate_translation(input_text, model, tokenizer):
         print(f"Error generating translation: {e}")
         return None
 
+# Create tokenizer for model
 def prep_model(model_name):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
     return tokenizer, model
     
-
+# Generate translations for any given list of models
 def translate_dataset(df, models):
-    predicted_t5 = []
-    predicted_f200 = []
-    predicted_hel = []
     predictions = []
-    for english_sentence in df['en']:
-        if "Google T5" in models.values:
-            translated_text_t5 = generate_translation(english_sentence, t5_model, t5_tokenizer)
-        if "Facebook NLLB" in models.values:
-            translated_text_f200 = generate_translation(english_sentence, f200_model, f200_tokenizer)
-        if "Helsinki Opus" in models.values:
-            translated_text_hel = generate_translation(english_sentence, hel_model, hel_tokenizer)
-        if translated_text_t5:
-            predicted_t5.append(translated_text_t5)
-        if translated_text_f200:
-            predicted_f200.append(translated_text_f200)
-        if translated_text_hel:
-            predicted_hel.append(translated_text_hel)
-    predictions.append(predicted_t5)
-    predictions.append(predicted_f200)
-    predictions.append(predicted_hel)
+    for model_name in models:
+        model, tokenizer = prep_model(model_name)
+        prediction = generate_translation(df, model, tokenizer)
+        predictions.append(prediction)
     return predictions
     
 

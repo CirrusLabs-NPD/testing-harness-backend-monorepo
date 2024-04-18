@@ -13,8 +13,6 @@ from .metrics import test_metrics, save_metrics, clean_scores, print_bleu_ter, p
 
 matplotlib.use('agg')
 
-print("FIRST PLACE")
-
 # Define paths to data and result folders
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'data')
 UPLOADED_FOLDER = os.path.join(os.path.dirname(__file__), 'uploaded')
@@ -53,7 +51,6 @@ clean_df, tokenized_df = clean(df)
 # print(f"TOKENIZED DF: {tokenized_df}")
 clean_df.to_csv(os.path.join(DATA_FOLDER, 'clean_df.csv') , index=False)
 
-print("SECOND PLACE")
 
 # Load and arrange medical dataset properly
 dataset = load_dataset('qanastek/WMT-16-PubMed', split=['train[0:5000]'], trust_remote_code=True)
@@ -101,9 +98,8 @@ def prep_dataset(dataset_name):
             clean_df.to_csv(os.path.join(DATA_FOLDER, f'{name}.csv'), index=False)
             tokenized_df.to_csv(os.path.join(DATA_FOLDER, f'{name}_tokenized.csv') , index=False)
             return clean_df, tokenized_df
-    
 
-
+# Fix medical dataset
 def fix_df(df):
     df = df.iloc[1:]
     df.reset_index(drop=True, inplace=True)
@@ -128,144 +124,7 @@ predicted_f200_medf = fix_df(predicted_f200_medf)
 predicted_hel_medf = pd.read_csv(os.path.join(DATA_FOLDER, 'predicted_hel_medf.csv'), header=None, names=['fr'])
 predicted_hel_medf = fix_df(predicted_hel_medf)
 
-print("THIRD PLACE")
-
-# Test the models on the default dataset
-def test_df(selected_models):
-    # Initialize lists to store results for each model
-    final_results = []
-    bleu_results = []
-    ter_results = []
-    meteor_results = []
-    accuracy_results = []
-    
-    # Check if the model is present and perform test metrics if it is
-    if 'Google T5' in selected_models:
-        final_t5_df, bleu_t5_df, ter_t5_df, meteor_t5_df, accuracy_t5_df = test_metrics(clean_df, tokenized_df, predicted_t5_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/t5/T5_meteor'), meteor_t5_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/t5/T5_bleu'), bleu_t5_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/t5/T5_ter'), ter_t5_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/t5/T5_translations'), final_t5_df)
-        
-        meteor_t5_df = clean_scores(meteor_t5_df)
-        bleu_t5_df = clean_scores(bleu_t5_df)
-        ter_t5_df = clean_scores(ter_t5_df)
-        
-        final_results.append(final_t5_df)
-        meteor_results.append(meteor_t5_df)
-        bleu_results.append(bleu_t5_df)
-        ter_results.append(ter_t5_df)
-        accuracy_results.append(accuracy_t5_df)
-    
-    if 'Facebook NLLB' in selected_models:
-        final_f200_df, bleu_f200_df, ter_f200_df, meteor_f200_df, accuracy_f200_df = test_metrics(clean_df, tokenized_df, predicted_f200_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/f200/F200_meteor'), meteor_f200_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/f200/F200_bleu'), bleu_f200_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/f200/F200_ter'), ter_f200_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/f200/F200_translations'), final_f200_df)
-        
-        meteor_f200_df = clean_scores(meteor_f200_df)
-        bleu_f200_df = clean_scores(bleu_f200_df)
-        ter_f200_df = clean_scores(ter_f200_df)
-        
-        final_results.append(final_f200_df)
-        meteor_results.append(meteor_f200_df)
-        bleu_results.append(bleu_f200_df)
-        ter_results.append(ter_f200_df)
-        accuracy_results.append(accuracy_f200_df)
-    
-    if 'Helsinki Opus' in selected_models:
-        final_hel_df, bleu_hel_df, ter_hel_df, meteor_hel_df, accuracy_hel_df = test_metrics(clean_df, tokenized_df, predicted_hel_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/hel/HEL_meteor'), meteor_hel_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/hel/HEL_bleu'), bleu_hel_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/hel/HEL_ter'), ter_hel_df)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'df/hel/HEL_translations'), final_hel_df)
-        
-        meteor_hel_df = clean_scores(meteor_hel_df)
-        bleu_hel_df = clean_scores(bleu_hel_df)
-        ter_hel_df = clean_scores(ter_hel_df)
-        
-        final_results.append(final_hel_df)
-        meteor_results.append(meteor_hel_df)
-        bleu_results.append(bleu_hel_df)
-        ter_results.append(ter_hel_df)
-        accuracy_results.append(accuracy_hel_df)
-    
-    bleu_image = print_bleu_ter("bleu", "blue", bleu_results, selected_models)
-    ter_image = print_bleu_ter("ter", "orange", ter_results, selected_models)
-    meteor_image = print_meteor("meteor", meteor_results, selected_models)
-    accuracy_image = print_bleu_ter("accuracy", "green", accuracy_results, selected_models)
-    
-    return final_results, bleu_image, ter_image, meteor_image, accuracy_image
-
-# Test the models on the medical dataset
-def test_medf(selected_models):
-    # Initialize lists to store results for each model
-    final_results = []
-    bleu_results = []
-    ter_results = []
-    meteor_results = []
-    accuracy_results = []
-    
-    # Check if the model is present and perform test metrics if it is
-    if 'Google T5' in selected_models:
-        final_t5_medf, bleu_t5_medf, ter_t5_medf, meteor_t5_medf, accuracy_t5_df = test_metrics(clean_medf, tokenized_medf, predicted_t5_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/t5/T5_meteor'), meteor_t5_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/t5/T5_bleu'), bleu_t5_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/t5/T5_ter'), ter_t5_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/t5/T5_translations'), final_t5_medf)
-        
-        meteor_t5_medf = clean_scores(meteor_t5_medf)
-        bleu_t5_medf = clean_scores(bleu_t5_medf)
-        ter_t5_medf = clean_scores(ter_t5_medf)
-        
-        final_results.append(final_t5_medf)
-        meteor_results.append(meteor_t5_medf)
-        bleu_results.append(bleu_t5_medf)
-        ter_results.append(ter_t5_medf)
-        accuracy_results.append(accuracy_t5_df)
-    
-    if 'Facebook NLLB' in selected_models:
-        final_f200_medf, bleu_f200_medf, ter_f200_medf, meteor_f200_medf, accuracy_f200_df = test_metrics(clean_medf, tokenized_medf, predicted_f200_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/f200/F200_meteor'), meteor_f200_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/f200/F200_bleu'), bleu_f200_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/f200/F200_ter'), ter_f200_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/f200/F200_translations'), final_f200_medf)
-        
-        meteor_f200_medf = clean_scores(meteor_f200_medf)
-        bleu_f200_medf = clean_scores(bleu_f200_medf)
-        ter_f200_medf = clean_scores(ter_f200_medf)
-        
-        final_results.append(final_f200_medf)
-        meteor_results.append(meteor_f200_medf)
-        bleu_results.append(bleu_f200_medf)
-        ter_results.append(ter_f200_medf)
-        accuracy_results.append(accuracy_f200_df)
-    
-    if 'Helsinki Opus' in selected_models:
-        final_hel_medf, bleu_hel_medf, ter_hel_medf, meteor_hel_medf, accuracy_hel_medf = test_metrics(clean_medf, tokenized_medf, predicted_hel_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/hel/HEL_meteor'), meteor_hel_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/hel/HEL_bleu'), bleu_hel_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/hel/HEL_ter'), ter_hel_medf)
-        save_metrics(os.path.join(RESULTS_FOLDER, 'medf/hel/HEL_translations'), final_hel_medf)
-        
-        meteor_hel_medf = clean_scores(meteor_hel_medf)
-        bleu_hel_medf = clean_scores(bleu_hel_medf)
-        ter_hel_medf = clean_scores(ter_hel_medf)
-        
-        final_results.append(final_hel_medf)
-        meteor_results.append(meteor_hel_medf)
-        bleu_results.append(bleu_hel_medf)
-        ter_results.append(ter_hel_medf)
-        accuracy_results.append(accuracy_hel_medf)
-    
-    bleu_image = print_bleu_ter("bleu", "blue", bleu_results, selected_models)
-    ter_image = print_bleu_ter("ter", "orange", ter_results, selected_models)
-    meteor_image = print_meteor("meteor", meteor_results, selected_models)
-    accuracy_image = print_bleu_ter("accuracy", "green", accuracy_results, selected_models)
-    
-    return final_results, bleu_image, ter_image, meteor_image, accuracy_image
-
+# Current method of testing given datasets and models
 def test_custom(selected_datasets, selected_models):
     bleu_results = {}
     ter_results = {}
@@ -321,12 +180,14 @@ def test_custom(selected_datasets, selected_models):
     
     return bleu_image, ter_image, accuracy_image
 
-def test_user(selected_datasets, selected_models):
-    if dataset == 'Standard':
-        return test_df(selected_models)
-    elif dataset == 'Medical':
-        return test_medf(selected_models)
+# def test_user(selected_datasets, selected_models):
+#     if dataset == 'Standard':
+#         return test_df(selected_models)
+#     elif dataset == 'Medical':
+#         return test_medf(selected_models)
 
+
+# Process a given chunk to get image results
 def process_chunk(chunk, tokenized_chunk, selected_models):
     predictions = translate_dataset(chunk, selected_models)
     final_results = []
@@ -350,6 +211,7 @@ def process_chunk(chunk, tokenized_chunk, selected_models):
     
     return bleu_image, ter_image, meteor_image, accuracy_image
 
+# Async process a list of given datasets with the given models
 async def generate_test_predictions(selected_datasets, selected_models):
     clean_datasets = []
     tokenized_datasets = []
@@ -375,13 +237,4 @@ async def generate_test_predictions(selected_datasets, selected_models):
 
 
 #Fix:
-# Add SSE to frontend
-# Add SSE to backend
-# Add async
-# medf t5
-
-#Done:
-# Get Accuracy scores
-# Generalize preprocessing
-# Chunking
-# Allow custom datasets (huggingface)
+# async
