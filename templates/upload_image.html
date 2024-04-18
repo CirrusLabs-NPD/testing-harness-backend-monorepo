@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Models Testing</title>
+    <style>
+        /* Style the side menu */
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+
+        /* Style the side menu links */
+        .sidenav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            display: block;
+        }
+
+        /* Change the color of the links on hover */
+        .sidenav a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Side menu -->
+<div class="sidenav">
+    <a href="{% url 'dataset' %}">Dataset</a>
+    <a href="{% url 'models' %}">Models</a>
+</div>
+
+<!-- Main content -->
+<div style="margin-left: 200px;"> <!-- Adjust margin to accommodate side menu width -->
+    <h1>Object Detection Models Testing</h1>
+    <p>Welcome to the object detection models testing platform. You can upload images and run various object detection models to detect objects within the images.</p>
+    <p>Choose from the options in the side menu to upload datasets or select and run different models.</p>
+</div>
+
+</body>
+</html>
