@@ -1,3 +1,6 @@
+from django.shortcuts import render
+
+# Create your views here.
 import sys
 from subprocess import run, PIPE
 from django.shortcuts import render, redirect
@@ -32,9 +35,9 @@ def run_model(request, model_name):
         if model_name == 'Yolov8':
             metrics = subprocess.run([sys.executable, 'yolo_m.py'], capture_output=True)
         elif model_name == 'ResNet':
-            metrics = subprocess.run(['python', 'resnet_script.py'], capture_output=True)
+            metrics = subprocess.run([sys.executable, 'yolo_m.py'], capture_output=True)
         elif model_name == 'Fasterrcnn':
-            metrics = subprocess.run(['python', 'fasterrcnn.py'], capture_output=True)
+            metrics = subprocess.run([sys.executable, 'detfasterrcnn.py'], capture_output=True)
         else:
             return HttpResponse(f'Model "{model_name}" not found.')
 
