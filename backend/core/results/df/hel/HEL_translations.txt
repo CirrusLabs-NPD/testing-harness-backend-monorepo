@@ -1,0 +1,119 @@
+en,fr,predicted
+site map,plan du site,carte du site
+feedback,rétroaction,retour d'information
+credits,crédits,Crédits ouverts
+français,english,français
+what is light ?,qu’est-ce que la lumière?,Qu'est-ce que la lumière ?
+cartoon,bande dessinée,dessin animé
+links,liens,liens
+glossary,glossaire,glossaire
+observatories,observatoires,observatoires
+who are we?,où sommes-nous?,Qui sommes-nous ?
+where did we come from?,d'où venons-nous?,D'où venons-nous ?
+are we alone?,sommes-nous seuls?,On est seuls ?
+astronomers timeline,astronomes ligne de temps,chronologie des astronomes
+verbatim a journey into canadian astronomy,verbatim l'aventure astronomique canadienne,un voyage dans l'astronomie canadienne
+instruments isaac newton builds his telescope.,instruments isaac newton fabrique son télescope.,les instruments isaac newton construit son télescope.
+astronomes william frederick king is born.,astronomes naissance de william frederick king.,Astronomes william frederick roi est né.
+astronomes john stanley plaskett is born.,astronomes naissance de john stanley plaskett.,astronomes john stanley plaskett est né.
+astronomes clarence augustus chant is born.,astronomes naissance de clarence augustus chant.,astronomes clarence augustus chant est né.
+astronomes carlyle smith beals is born.,astronomes naissance de carlyle smith beals.,les astronomes charlyle smith beals sont nés.
+astronomes gerhard herzberg is born.,astronomes naissance de gerhard herzberg.,astronomes gerhard herzberg est né.
+astronomes helen sawyer hogg is born.,astronomes naissance de helen sawyer hogg.,Les astronomes Helen Sawyer Hogg sont nés.
+astronomes andrew mckellar is born.,astronomes naissance de andrew mckellar.,astronomes andrew mckellar est né.
+astronomes arthur edwin covington is born.,astronomes naissance de arthur edwin covington.,astronomes arthur edwin covington est né.
+astronomes anne barbara underhill is born.,astronomes naissance de anne barbara underhill.,astronomes anne barbara underhill est né.
+astronomes sidney van den bergh is born.,astronomes naissance de sidney van den bergh.,Astronomes Sidney van den Bergh est né.
+astronomes,astronomes naissance de hubert reeves,astronomes
+astronomes rené racine is born.,astronomes naissance de rené racine.,astronomes rené racine est né.
+astronomes john barrie hutchings is born.,astronomes naissance de john barrie hutchings.,Astronomes John Barrie Hutchings est né.
+astronomes jack newton is born.,astronomes naissance de jack newton.,Astronomes Jack Newton est né.
+astronomes charles thomas bolton is born.,astronomes naissance de charles thomas bolton.,astronomes charles thomas boulon est né.
+astronomes jean-rené roy is born.,astronomes naissance de jean-rené roy.,astronomes jean-rené roy est né.
+astronomes damien lemay is born.,astronomes naissance de damien lemay.,Astronomes Damien Lemay est né.
+astronomes paul boltwood is born.,astronomes naissance de paul boltwood.,astronomes paul boulonwood est né.
+astronomes peter gordon martin is born.,astronomes naissance de peter gordon martin.,astronomes peter gordon martin est né.
+astronomes gilles fontaine is born.,astronomes naissance de gilles fontaine.,astronomes gilles fontaine est né.
+astronomes david howard levy is born.,astronomes naissance de david howard levy.,Les astronomes david howard sont nés.
+astronomes john richard bond is born.,astronomes naissance de john richard bond.,Le lien astronomes john richard est né.
+astronomes scott duncan tremaine is born.,astronomes naissance de scott duncan tremaine.,astronomes scott duncan tremaine est né.
+replace by: 1953:,remplacer par: 1953:,Remplacer par : 1953 :
+astronomes jaymie mark matthews is born.,astronomes naissance de jaymie mark matthews.,astronomes jaymie marque matthews est né.
+in the future :,dans le futur :,à l'avenir :
+they are: 1.,il s'agit des observatoires : 1.,ils sont: 1.
+"kingston observatory in london, ontario: est.","de kingston, à london, en ontario, en 1856 2.","observatoire kingston à london, ontario: est."
+stars produce large amounts of neutrinos.,les étoiles en produisent de grandes quantités.,Les étoiles produisent de grandes quantités de neutrinos.
+work began in 1990 and was completed in 1999.,les travaux débutent en 1990 et se terminent 1999.,Le travail a commencé en 1990 et s'est achevé en 1999.
+all together the satellite weighs 250 kilograms.,"en tout, le satellite pèse 250 kilogrammes.","Tous ensemble, le satellite pèse 250 kilogrammes."
+its predicted life expectancy is 5 to 10 years.,sa durée de vie devrait être de 5 à 10 ans.,son espérance de vie prévue est de 5 à 10 ans.
+"the entire observatory will weigh 6,600 kilograms.",l'observatoire entier pèsera 6600 kilogrammes.,l'observatoire entier pèsera 6 600 kilogrammes.
+the next generation,la relève,la prochaine génération
+he passed away in ottawa in 1916 at 62 years old.,"il meurt à ottawa en 1916, à l'âge de 62 ans.",il est décédé à ottawa en 1916 à 62 ans.
+chant acted as president from 1904 to 1907.,chant en sera le président entre 1904 et 1907.,chant a été président de 1904 à 1907.
+herzberg died in ottawa in 1999 at 94 years old.,"herzberg meut à ottawa en 1999, à l'âge de 94 ans.",Herzberg est décédé à ottawa en 1999 à l'âge de 94 ans.
+asteroid 3316 was named in his honour.,l'astéroïde no 3316 porte son nom en son honneur.,astéroïde 3316 a été nommé en son honneur.
+asteroid 2917 was named in her honour.,l'astéroïde no 2917 porte son nom en son honneur.,L'astéroïde 2917 a été nommé en son honneur.
+asteroid 4230 bears his name in his honour.,l'astéroïde no 4230 porte son nom en son honneur.,astéroïde 4230 porte son nom en son honneur.
+other instruments were to follow.,d'autres appareils suivront par la suite.,d'autres instruments devaient suivre.
+asteroid 4230 is named in his honour.,l'astéroïde no 4230 porte son nom en son honneur.,astéroïde 4230 est nommé en son honneur.
+it was quite a triumph.,c'est un triomphe.,C'était un vrai triomphe.
+a photographic guide for the amateur in 1977.,a photographic guide for the amateur.,un guide photographique pour l'amateur en 1977.
+he wrote two books with philip teece:,il rédige ensuite deux livres avec philip teece :,Il a écrit deux livres avec philip tece:
+asteroid 3673 is named after him.,l'astéroïde no 3673 porte son nom en son honneur.,L'astéroïde 3673 porte son nom.
+the first instruments the transit and the sextant,les premiers instruments le transit et le sextant,les premiers instruments le transit et le sextant
+invisible light collectors seeing the invisible,les capteurs de lumière invisible voir l’invisible,capteurs de lumière invisibles voyant l'invisible
+photographic plates memorizing light,les plaques photographiques mémoriser la lumière,plaques photographiques mémorisant la lumière
+the cornea surrounds and protects the eye.,la cornée enveloppe et protège l’œil.,la cornée entoure et protège l'œil.
+microwaves are of immense interest to astronomers.,les micro-ondes sont très étudiées en astronomie.,Les micro-ondes sont d'un immense intérêt pour les astronomes.
+the result is a photographic image.,le résultat est alors une image.,le résultat est une image photographique.
+let’s take a look at the case of temperature.,prenons le cas de la température.,Jetez un coup d'œil au cas de la température.
+it was the first true photometer.,c’est le premier « vrai » photomètre.,C'était le premier vrai photomètre.
+"in all, 2,363 infrared sources were detected.","en tout, 2363 sources infrarouges sont détectées.","En tout, 2 363 sources infrarouges ont été détectées."
+it was the first photograph of our sun’s spectrum.,c’est la première photographie du spectre solaire.,c'était la première photo de notre spectre de soleil.
+"the answer was not long in coming, however.",la réponse ne tardera pas.,"la réponse n'a pas tardé à venir, cependant."
+this is destructive interference.,on parle alors d’interférence destructive.,C'est une interférence destructrice.
+the first tests were performed in 1983 and 1984.,les premiers tests sont réalisés en 1983 et 1984.,les premiers essais ont été effectués en 1983 et 1984.
+what would we do without it?,que ferions-nous sans elle ?,Qu'est-ce qu'on ferait sans ça ?
+so what exactly is light?,mais qu'est-ce donc que la lumière ?,Qu'est-ce que la lumière exactement ?
+text of this activity,texte de l'activité,texte de cette activité
+gamma rays the most energetic form of light.,rayons gamma lumière la plus énergétique qui soit.,rayons gamma la forme la plus énergique de la lumière.
+the sun under gamma rays,le soleil vu sous les rayons gamma,le soleil sous les rayons gamma
+the sun under x-rays,le soleil vu sous les rayons x,le soleil sous les rayons X
+the sun under ultraviolet,le soleil vu sous les rayons ultraviolet,le soleil sous l'ultraviolet
+the sun visible,le soleil vu dans la zone visible,le soleil visible
+the sun under infrared,le soleil vu sous les rayons infrarouges,le soleil sous infrarouge
+the sun under radio waves,le soleil vu dans la zone des fréquences radio,le soleil sous les ondes radio
+emission spectra of hydrogen.,spectre d'émission de l'hydrogène.,spectres d'émission d'hydrogène.
+emission spectra of iron.,spectre d'émission du fer.,spectres d'émission de fer.
+boy what is a light year?,bulle garçon qu’est-ce qu’une année-lumière?,Qu'est-ce qu'une année-lumière ?
+girl it’s like travelling through time.,bulle fille comme si nous voyagions dans le temps.,C'est comme voyager dans le temps.
+now i understand!,je comprend!,J'ai compris !
+wildlife and plants are also affected.,la faune et la flore sont également touchées.,La faune et les plantes sont également touchées.
+your turn to get involved!,"alors, à vous de jouer!",À ton tour de t'impliquer !
+click on:,vous pouvez cliquer sur :,cliquez sur & #160;:
+"the young man replied, ""i am morning star.",« je suis étoile du matin.,le jeune homme répondit: «Je suis une étoile du matin.
+this one is from the iroquois of ontario.,la première provient des iroquois de l'ontario :,celui-ci vient des iroquois de l'ontario.
+"""don’t be stupid,"" another replied.","« ne soit pas stupide », dit un autre.","-- Ne sois pas stupide, répondit un autre."
+"""rocks can be broken.""",« les rochers peuvent se briser.,"""les roches peuvent être brisées."""
+"""what about trees?",»,"""Et les arbres ?"
+"""why not take on the form of night?",« pourquoi ne pas prendre la forme de la nuit?,"""pourquoi ne pas prendre la forme de la nuit ?"
+"""they live in the sky and never die.""",« elles habitent le ciel et ne meurent jamais.,"""ils vivent dans le ciel et ne meurent jamais."""
+it occupied the centre of their universe.,elle occupe aussi le centre de l'univers.,il occupait le centre de leur univers.
+four men were hunting a bear.,quatre hommes poursuivaient un ours.,quatre hommes chassaient un ours.
+the moon-man heard him and descended to earth.,l'homme-lune l'entendit et descendit sur terre.,L'homme de lune l'entendit et descendit sur la terre.
+"it evolved over time, and thus it has a history.","en d’autres mots, il a une histoire.","il a évolué au fil du temps, et donc il a une histoire."
+it is dangerous to view the sun directly.,il est dangereux d'observer directement le soleil.,il est dangereux de voir le soleil directement.
+bring a notebook and pencil to take notes.,la musique peut être une option agréable.,Apportez un cahier et un crayon pour prendre des notes.
+how does a star finder work?,comment fonctionne le cherche-étoiles?,Comment fonctionne un chercheur d'étoiles ?
+the way a star finder works is simple.,le fonctionnement du cherche-étoiles est simple.,la façon dont un chercheur d'étoiles fonctionne est simple.
+astronomers,astronomes,astronomes
+astronomers glossary,astronomes glossaire,glossaire des astronomes
+synonym: shooting star.,synonyme: étoile filante.,synonyme : étoile filante.
+◦ radiation:,◦ radiation :,Rayonnement:
+it is small and dim.,◦ tache solaire :,Il est petit et faible.
+astronomers,verbatim,astronomes
+i know what you’re thinking:,je sais... vous allez dire « y a rien là ».,Je sais ce que tu penses :
+"""sound  s boring!""",mais écoutez bien...,"""C'est ennuyeux !"""
+"in fact, i was beginning to think we were lost.",en fait... je crois que nous étions perdus.,"En fait, je commençais à penser que nous étions perdus."
+bubble are we almost there?,bulle quand est-ce qu’on arrive?,On y est presque ?
+bubble i’m hungry.,bulle j’ai faim.,bulle j'ai faim.
