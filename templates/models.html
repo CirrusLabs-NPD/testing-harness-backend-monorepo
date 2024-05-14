@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Models</title>
+    <style>
+        /* Style the side menu */
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+
+        /* Style the side menu links */
+        .sidenav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            display: block;
+        }
+
+        /* Change the color of the links on hover */
+        .sidenav a:hover {
+            background-color: #ddd;
+        }
+
+        /* Style the dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Style the dropdown button */
+        .dropdown button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Style the dropdown links */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Style for traditional dropdown */
+        .traditional-dropdown select {
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        /* Add space between dropdowns */
+        .dropdown-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Side menu -->
+<div class="sidenav">
+    <a href="{% url 'upload_image' %}">Home</a>
+    <a href="{% url 'dataset' %}">Dataset</a>
+    <a href="{% url 'models' %}">Models</a>
+</div>
+
+<!-- Main content -->
+<div style="margin-left: 200px;"> <!-- Adjust margin to accommodate side menu width -->
+    <h1>Models</h1>
+    <div class="dropdown-container">
+        <!-- Dropdown menu for selecting datasets -->
+        <div class="traditional-dropdown">
+            <select>
+                <option value="" selected disabled>Select Dataset</option>
+                {% for dataset in datasets %}
+                    <option value="{{ dataset.id }}">{{ dataset.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <!-- Dropdown menu for selecting models -->
+    <div class="dropdown">
+        <button class="dropbtn">Select Model</button>
+        <div class="dropdown-content">
+            <a href="{% url 'run_model' model_name='Yolov8' %}">Yolov8</a>
+            <a href="{% url 'run_model' model_name='ResNet' %}">ResNet</a>
+            <a href="{% url 'run_model' model_name='Fasterrcnn' %}">Fasterrcnn</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

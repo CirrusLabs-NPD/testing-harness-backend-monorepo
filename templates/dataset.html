@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Dataset</title>
+    <style>
+        /* Style the side menu */
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+
+        /* Style the side menu links */
+        .sidenav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            display: block;
+        }
+
+        /* Change the color of the links on hover */
+        .sidenav a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Side menu -->
+<div class="sidenav">
+    <a href="{% url 'upload_image' %}">Home</a>
+    <a href="{% url 'dataset' %}">Dataset</a>
+    <a href="{% url 'models' %}">Models</a>
+  
+</div>
+
+<!-- Main content -->
+<div style="margin-left: 200px;"> <!-- Adjust margin to accommodate side menu width -->
+    <h1>Upload Dataset</h1>
+    <!-- Form to upload a folder of images or select one or multiple images -->
+    <div class="form-container"><form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" multiple>
+        <button type="submit">Upload Images</button>
+    </form></div>
+    
+    <div class="form-container"> <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="dataset" multiple webkitdirectory directory>
+        <button type="submit">Upload Dataset</button>
+    </form></div>
+</div>
+
+</body>
+</html>
