@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     # React development server
-    'http://localhost:3000'
+    'http://localhost:3030'
 ]
 CORS_ALLOW_CREDENTIALS = True
 
